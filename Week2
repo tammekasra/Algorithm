@@ -1,0 +1,27 @@
+1. I have figured out more or less how github works and it took me a while to connect VScode with Github.
+2. I have made a rather simple game of 4 in a row that I  I will try later to make it 5 or 10 in a row game for fun
+The game itself is a turnbased game where the player (here in this case player 1) has to choose from 7 slots where to input his or her 
+coin. Player 2 as in A.I (at the moment its a random inputer that stops your winning chances as soon as you have 3 in a row).
+
+I wanted to take chess instead of 4 in a row, but since I am a beginner in this field and I have 2 other courses that I am doing right now
+it is best for me to start a little bit easier.
+
+I will for the next week implement the minmax algoritm that is vastly used in a lot of different games such as chess to find the 
+so called "optimal" move and seeing all the possible future outputs (obviously chess would be more streneous since it has more combinations than
+molecules in the universe).
+
+-Since I have never used python code revewing tools - I might either use Codacy or DeepSource
+-I will also implement Coverage.py - tool for test coverage .
+   
+
+I did the game 4 in a row for around 5-6 hours in 8-16-2022 and I wanted already to input the minmax algorithm,
+but since the course Introduction to Artificial Intelligence has this exact topic next week, It would be nice for me to
+have full grasp on it before trying to implement it on.
+
+-https://www.youtube.com/watch?v=l-hh51ncgDI&ab_channel=SebastianLague
+-https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-1-introduction/
+-https://materiaalit.github.io/intro-to-ai/part2/
+
+At the moment the simple algoritm that dects whether there would be a winning move for player 1 and it is O(n^3) since it goes through 3
+loops.
+
