@@ -17,7 +17,7 @@ Board.print_board(board)
 end_of_the_game = True
 turn = 0
  
-while end_of_the_game:
+while end_of_the_game: #If we reach to either a winning or a loosing position, we are going to put end_of_the_game as false
     if turn == 0:
         move = int(input("Player 1, Make your Selection(0-6):"))
 
@@ -36,24 +36,40 @@ while end_of_the_game:
 
 
         
-        if Board.is_valid(board,move):
-            row = Board.get_next_open_row(board,move)
-            Board.move(board,row,move,1)
+        if Board.is_valid(board,move): #Is_valid move checks if the move can be played or not (if is it over the select column or not which is 6)
+            row = Board.get_next_open_row(board,move) #We will fetch the desired row where we can to insert our coin - since the number of the row will change everytime
+            Board.move(board,row,move,1) #We insert the wanted move
       #      Board.print_board(board)
             if Winning_move.win(board, 1): #We check if it is a winning game!
                         print("Player 1 wins!")
                         end_of_the_game = False
+           
+        Board.print_board(board) # We need to print it the matrix upside down
+        turn += 1
+        turn = turn % 2
          
 
     else: #The A.I (sort of)
 
-       minimax_max = minmax.minimax(board)
+        move = minmax.minimax(board) #Get the best move using MINIMAX algorithm!
 
-       break
+        
+        row = Board.get_next_open_row(board,move)
+        Board.move(board,row,move,2)
+        Board.print_board(board)
+        if Winning_move.win(board, 2):
+            print("Player 2 wins!")
+            end_of_the_game = False
+
+        Board.print_board(board) # We need to print it the matrix upside down
+             
+        turn += 1
+        turn = turn % 2
+      
 
         
 
-       #predict = minmax.players_next_move(board)
+     
        # if predict == -10:
        #     move = random.randint(0,6)
        # else:
@@ -75,7 +91,4 @@ while end_of_the_game:
        #                 print("Player 2 wins!")
        #                 end_of_the_game = False
  
-    Board.print_board(board) # We need to print it the matrix upside down
-             
-    turn += 1
-    turn = turn % 2
+ 

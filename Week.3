@@ -1,0 +1,21 @@
+
+
+1. I applied minimax algorithm that at the moment will calculate that optimal move within the range 4 moves.(Predicts the outcome
+after move 4).
+2. The only issue with it is that if I make the loop larger it either takes too much time and for some weird reason it at some points
+gets into a loop.
+3.Luckily, this thus far with the algorithm has worked fine.
+4.The main idea is behind minimax is to go through all the possible outcomes to the end of a game or a to a specific 
+poinf (it is 4 in this algorithm for the time being). In each of the steps, there is a max_value step, that returns the result
+for player 2, the best possible outcome (winning or draw), and min_value to guess opponent (us as the players) best "play".
+E.g if we start with position a, it goes to max_value, then it gives all the possible continuations to min_value, and 
+from there it gives all the possible continouations to back to max_value. Each of the steps tries to get either maximum value 
+from max_value or minimum value from min_value, if neither can be acheived, 0 = draw is emerged!
+
+5.It took me around 3 hours on Friday 23/9/ to fix the previous bugs I had left from week2 and today (24/9) I applied the algorithm
+for around 5-6 hours (succesfully managed to it :) ) .
+
+6. The logarithmic running-time function is O(n^4) since at maximum, it goes through 4 nested loops.
+7. I got the algorithm from another course where was a similar exercise https://materiaalit.github.io/intro-to-ai/part2/
+8. Also treid unit testing coding, but it ended up as really big mess, and still trying to implement them
+(Took the unit test coding from https://www.youtube.com/watch?v=6tNS--WetLI)
