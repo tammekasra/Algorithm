@@ -1,10 +1,12 @@
 
 
-
+import math
 import Board
+import random
 import numpy as np
 import Winning_move
 import copy
+import Evaluate
 x_axis = Board.x_axis
 y_axis = Board.y_axis
 
@@ -61,54 +63,107 @@ def value(board): #We want to get a value to a board, whether its winning for 1 
 
         return 0
 
-def minimax(board): #The main starting to point for min-max pruning (back a forth!)
+def get_valid_locations(board):
+    locations = []
 
-    move = 0
-    for i in range(6): #It goes trhough 7 columns (0-6) and tries all possible options
-        if Board.is_valid(board,i): #
-            a = max_value(board,0,0,0,i) #if get the optimal MOVE, we insert the current board, then alpha value, to find the
-                                          #the biggest value if there is one (1), and beta which is minimum value -1, level is the 
-                                          #  for how long we want to predict our optimal move, and i is the current move, if it is bad or not 
-            if a[0] == 0 or a[0] == -1:
-                move = a[1]
-                break
+    for i in range(7):
+        if Board.is_valid(board,i):
+            locations.append(i)
 
-    return move
+    return locations
 
-def max_value(board, alpha, beta,level,move):
-    # Implement me
-    v = -1
-    if level == 5:
+def minimax(board, depth, alpha, beta, A_I):
+    valid_locations = get_valid_locations(board)
+    
+    if depth == 0:
+        if A_I: 
+            return (None, (Evaluate.score(board, 2)))
+        else:
+            return (None, -1*(Evaluate.score(board, 1)))
+    is_terminal = is_end_state(board)
+    if is_terminal:
         if Winning_move.win(board,2):
-            return (v,move)
+            return (None,100)
+        elif Winning_move.win(board,1):
+            return (None,-100)
         else:
-            return (0,move)
-    if Winning_move.win(board,2):
-        return (v,move)
-    if is_end_state(board): return (0,move) #return if we won
-    for children in Generate_Children(board,2):
-        #Board.print_board(children)
-        c = min_value(children,alpha,beta,level+1,move)
-        v = max(v, int(c[0]))
-        alpha = max(alpha, v)
-        if alpha >= beta: return (v,move)
-    return (v,move)
+            return (None,0)
 
-def min_value(board, alpha, beta,level,move):
-    v = 1
-    if level == 5:
-        if Winning_move.win(board,1):
-            return (v,move)
-        else:
-            return (0,move)
-    if is_end_state(board): return (0,move) #Discrd the current board, if it is loosing!
-    for children in Generate_Children(board,1):
-        #Board.print_board(children)
-        c = max_value(children,alpha,beta,level+1,move) #at the end of the root, we find either -1,0,1 and by each step decide if we pick
-        v = min(v, int(c[0])) #-1 , 0 or 1 but in this case  
-        beta = min(beta, v)
-        if alpha >= beta: return (v,move)
-    return (v,move)
+    
+
+    if  is_terminal:
+            if Winning_move.win(board, 2):
+                return (None, 100000000000000)
+            elif Winning_move.win(board, 1):
+                return (None, -10000000000000)
+            else: # Game is over, no more valid moves
+                return (None, 0)
+        
+    if A_I:
+        value = -math.inf
+        for col in valid_locations:
+            row = Board.get_next_open_row(board,col)
+            b_copy = board.copy()
+            Board.move(b_copy,row,col,2)
+            new_score = minimax(b_copy, depth-1, alpha, beta, False)[1]
+            if new_score > value:
+                value = new_score
+                column = col
+            alpha = max(alpha, value)
+            if alpha >= beta:
+                break
+        return column, value
+
+    else: # Minimizing player
+        value = math.inf
+        for col in valid_locations:
+            row = Board.get_next_open_row(board,col)
+            b_copy = board.copy()
+            Board.move(b_copy,row,col,1)
+            new_score = minimax(b_copy, depth-1, alpha, beta, True)[1]
+            if new_score < value:
+                value = new_score
+                column = col
+            beta = min(beta, value)
+            if alpha >= beta:
+                break
+        return column, value
+
+#def minimax(board): #The main starting to point for min-max pruning (back a forth!)
+
+ #   move = max_value(board,-1,1,10000)
+
+ #   return move
+
+#def max_value(board, alpha, beta,level,move):
+    # Implement me
+#    v = -1
+#    if level == 5:
+#        return value(board)
+#    if Winning_move.win(board,2):
+#        return (v,move)
+#    if is_end_state(board): return (0,move) #return if we won
+#    for children in Generate_Children(board,2):
+#        #Board.print_board(children)
+#        c = min_value(children,alpha,beta,level+1,move)
+#        v = max(v, int(c[0]))
+#        if value >= beta: return (v,move)
+#        alpha = max(alpha, v)
+        
+#    return (v,move)
+
+#def min_value(board, alpha, beta,level,move):
+#    v = 1
+#    if level == 5:
+#        return value(board)
+#    if is_end_state(board): return (0,move) #Discrd the current board, if it is loosing!
+#    for children in Generate_Children(board,1):
+#        #Board.print_board(children)
+#        c = max_value(children,alpha,beta,level+1,move) #at the end of the root, we find either -1,0,1 and by each step decide if we pick
+#        v = min(v, int(c[0])) #-1 , 0 or 1 but in this case  
+#        beta = min(beta, v)
+#        if alpha >= beta: return (v,move)
+#    return (v,move)
 
 
 

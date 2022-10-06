@@ -7,6 +7,7 @@ import Board
 import Winning_move
 import random
 import minmax
+import math
 x_axis = Board.x_axis
 y_axis  = Board.y_axis
  
@@ -53,15 +54,18 @@ while end_of_the_game: #If we reach to either a winning or a loosing position, w
 
     else: #The A.I (sort of)
 
-        move = minmax.minimax(board) #Get the best move using MINIMAX algorithm!
-
-        
+        move2 = minmax.minimax(board, 5, -math.inf, math.inf, True) #Get the best move using MINIMAX algorithm!
+        #def minimax(board, depth, alpha, beta, maximizingPlayer):
+        print(move2)
+        move = move2[0]
         row = Board.get_next_open_row(board,move)
         Board.move(board,row,move,2)
-        Board.print_board(board)
         if Winning_move.win(board, 2):
+            Board.print_board(board)
             print("Player 2 wins!")
             end_of_the_game = False
+        Board.print_board(board)
+        
 
         Board.print_board(board) # We need to print it the matrix upside down
              
