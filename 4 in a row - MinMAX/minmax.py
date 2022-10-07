@@ -30,21 +30,6 @@ def players_next_move(board): #This is a not the main algorithm (this is an algo
             continue
     return value
 
-
-def Generate_Children(board,turn): #When we go through minimax algorithm, the core essence is to go through all possible combinations!
-
-    list = []
-
-    for move in range(7):
-        if Board.is_valid(board,move):
-            board2 = board.copy()
-            row = Board.get_next_open_row(board2,move)
-            Board.move(board2,row,move,turn)
-            list.append(board2)
-        else:
-            continue
-            
-    return list
             
 
 def is_end_state(board): #Checks if it is end of the turn!
@@ -79,50 +64,50 @@ def get_valid_locations(board):
     for i in range(7):
         if Board.is_valid(board,i):
             locations.append(i)
-
+    random.shuffle(locations)
     return locations
 
-def minimax(board, depth, alpha, beta, A_I):
+def minimax(board, depth, alpha, beta, A_I,move):
     valid_locations = get_valid_locations(board)
     
     if depth == 0:
         if A_I: 
-            return (None, (Evaluate.score(board, 2)))
+            return (move, (Evaluate.score(board, 2)))
         else:
-            return (None, -1*(Evaluate.score(board, 1)))
+            return (move, -1*(Evaluate.score(board, 1)))
     is_terminal = is_end_state(board)
     if is_terminal:
         if Winning_move.win(board,2):
-            return (None,math.inf)
+            return (move,math.inf)
         elif Winning_move.win(board,1):
-            return (None,-math.inf)
+            return (move,-math.inf)
         else:
-            return (None,0)
+            return (move,0)
         
-    if A_I:
-        value = -math.inf
+    if A_I: # The artificial intelligence turn (its best move)
+        value = -math.inf #(we try to find the maximum value or the result)
         column = 0
         for col in valid_locations:
             row = Board.get_next_open_row(board,col)
-            b_copy = board.copy()
+            b_copy = board.copy()  # We need to copy the board, otherwise it going to be mixed up within the recursion file
             Board.move(b_copy,row,col,2)
-            new_score = minimax(b_copy, depth-1, alpha, beta, False)[1]
+            new_score = minimax(b_copy, depth-1, alpha, beta, False,col)[1]
             if new_score > value:
                 value = new_score
                 column = col
             alpha = max(alpha, value)
             if alpha >= beta:
                 break
-        return column, value
+        return (column, value)
 
-    else: # Minimizing player
+    else: # Our as the players maximimum turn
         value = math.inf
         column = 0
         for col in valid_locations:
             row = Board.get_next_open_row(board,col)
             b_copy = board.copy()
             Board.move(b_copy,row,col,1)
-            new_score = minimax(b_copy, depth-1, alpha, beta, True)[1]
+            new_score = minimax(b_copy, depth-1, alpha, beta, True,col)[1]
             if new_score < value:
                 value = new_score
                 column = col

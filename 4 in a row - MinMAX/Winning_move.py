@@ -25,5 +25,5 @@ def win(board, piece):
     # Negatively 
     for y in range(y_axis-3):
         for x in range(3, x_axis):
-            if  board[x-1][y+1] == piece and board[x-2][y+2] == piece and board[x-3][y+3] == piece:
+            if  board[x][y] == piece and board[x-1][y+1] == piece and board[x-2][y+2] == piece and board[x-3][y+3] == piece:
                 return True

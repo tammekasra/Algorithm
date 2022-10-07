@@ -8,6 +8,12 @@ y_axis = 7
 def board(): #here we make the size of the board which is 6 columns and 7 rows
     board = np.zeros((6,7)) 
     return board
+
+def reset(board):
+    for i in board:
+        for j in i:
+            j = 0
+    return board
  
 def move(board,row,col,piece): #we put our desired move in the column we want
     board[row][col]= piece
