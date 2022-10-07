@@ -48,6 +48,16 @@ def Generate_Children(board,turn): #When we go through minimax algorithm, the co
             
 
 def is_end_state(board): #Checks if it is end of the turn!
+        if Winning_move.win(board,1):
+            return True
+        if Winning_move.win(board,2):
+            return True
+        for i in board:
+            for j in i:
+                if int(j) == 0:
+                    return False                
+        return True
+def end_state(board): #Checks if it is end of the turn!
         for i in board:
             for j in i:
                 if int(j) == 0:
@@ -83,24 +93,15 @@ def minimax(board, depth, alpha, beta, A_I):
     is_terminal = is_end_state(board)
     if is_terminal:
         if Winning_move.win(board,2):
-            return (None,100)
+            return (None,math.inf)
         elif Winning_move.win(board,1):
-            return (None,-100)
+            return (None,-math.inf)
         else:
             return (None,0)
-
-    
-
-    if  is_terminal:
-            if Winning_move.win(board, 2):
-                return (None, 100000000000000)
-            elif Winning_move.win(board, 1):
-                return (None, -10000000000000)
-            else: # Game is over, no more valid moves
-                return (None, 0)
         
     if A_I:
         value = -math.inf
+        column = 0
         for col in valid_locations:
             row = Board.get_next_open_row(board,col)
             b_copy = board.copy()
@@ -116,6 +117,7 @@ def minimax(board, depth, alpha, beta, A_I):
 
     else: # Minimizing player
         value = math.inf
+        column = 0
         for col in valid_locations:
             row = Board.get_next_open_row(board,col)
             b_copy = board.copy()
@@ -127,7 +129,7 @@ def minimax(board, depth, alpha, beta, A_I):
             beta = min(beta, value)
             if alpha >= beta:
                 break
-        return column, value
+        return (column, value)
 
 #def minimax(board): #The main starting to point for min-max pruning (back a forth!)
 
