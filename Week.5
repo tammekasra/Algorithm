@@ -1,0 +1,11 @@
+
+
+1) I finally managed and more or less understood how the unittest works for python (tried different packages with no result)
+2) The UNITTEST has two phases - first once checks whether the A.I wins against and opponent who plays randomly,
+the second test however is when A.I plays against A.I itself - the result should end up in a draw (but sadly doesnt)
+3) When running the unittest, for some reason the it starts to repeat that the are no options move a piece (since the slots are full,even tough they are not)
+4) I got the algorithm to work (which was a rather big headache for a long time). I mangaed to figure out that just like 
+the chessalgorithm works, it is important to give an accurate evaluation of the SET of the game and try to give a score.
+Otherwise if we would plainly only use the algorithm without someform of evaluation, it will just find a move that is winning
+if there is 3 in a row (adding 4), but does not calculate if there is 2 in a row etc.
+5)
