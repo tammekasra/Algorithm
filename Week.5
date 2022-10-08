@@ -1,11 +1,31 @@
 
 
-1) I finally managed and more or less understood how the unittest works for python (tried different packages with no result)
-2) The UNITTEST has two phases - first once checks whether the A.I wins against and opponent who plays randomly,
-the second test however is when A.I plays against A.I itself - the result should end up in a draw (but sadly doesnt)
-3) When running the unittest, for some reason the it starts to repeat that the are no options move a piece (since the slots are full,even tough they are not)
-4) I got the algorithm to work (which was a rather big headache for a long time). I mangaed to figure out that just like 
-the chessalgorithm works, it is important to give an accurate evaluation of the SET of the game and try to give a score.
-Otherwise if we would plainly only use the algorithm without someform of evaluation, it will just find a move that is winning
-if there is 3 in a row (adding 4), but does not calculate if there is 2 in a row etc.
-5)
+1) The minmax algorithm works for now. However, whenever we test if the A.I plays against himself, he sometimes looses...
+meaning that the algorithm is not "perfect" and it might be because I need to increase the depth of the minmax (recursion)
+or tweak the evualtion
+2) Testing is now done - the testing.py does 3 test. 1) how well it plays against opponent who plays randomly,
+and 2) against a really bad minmax algorithm and 3) against itself.
+
+[1.0, (3, -9), 1.0595030784606934]
+[2.0, (6, -8), 0.6449146270751953]
+[3.0, (4, -8), 0.681206464767456]
+[4.0, (3, -10), 0.8197884559631348]
+[5.0, (4, -3), 1.399440050125122]
+[6.0, (5, -1), 0.5290942192077637]
+[7.0, (3, 3), 0.6684725284576416]
+[8.0, (4, 3), 0.81569504737854]
+[9.0, (4, 8), 0.4796924591064453]
+[10.0, (2, inf), 0.027951478958129883]]
+
+This is a game against a random input module, where the A.I won - first tuple shows which move is it for the A.I, second shows what moves was ultimately chosen, 
+third one shows the evulation of the move, and fourth one gives time.
+As we already clearly see that the A.I is really careful (a passive player) that tries to counterfeit the opponent. As it is seen on move 1, the A.I thinks it needs
+to already defend itself from the opponent winning (a minus -9) value and choosing the value, took 1 second.
+However, as time goes by, the A.I from move 7 already understands, that it actually might winning for IT and it start giving positive numbers (winning game) and 
+the time in finding the winning move is faster than finding a loosing move.
+As soon as it find a win in the end as in move 10, it return positive infinitive value with time 0.02 (because it is evaluated using 1 recursion) and makes the win.
+
+3) I have made the toteusraportti/testausdokumentti and peer-review (https://github.com/schmaigul/tiralabra/issues/1)
+4) I havent finished my UI project (using pygame to make a user interface based game, so we do not have to see numbers)
+5) I also need to find a good method for cleaner code, but I havent found such an application yet that actually works...
+ 
