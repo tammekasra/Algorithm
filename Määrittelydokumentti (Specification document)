@@ -1,0 +1,20 @@
+## Määrittelydokumentti (Specification document)
+
+The main goal is to create a game called 4 connect. Its idea is that there are two players who try to get 4 coins in a row and win the game.
+The project uses alpha-beta pruning and minimax algorithm to get the optimal best move.
+Minimax goes through all possible options and evaluates each one and returns the "desired" move out of all those options.
+
+All the other descriptions - like time complexity and small details are in described in testausdokumentti, toteusdokumentti and instructions for use
+ at - https://github.com/tammekasra/Algorithm
+
+The main reason why I chose this algorithm is that me personally, recursion has been a difficult thing to grasp and minimax just does that and 
+this also put me in a situation to look for better algoritms in the internet for future knowledge.
+
+The main programming language is simply python by using modules - pygame (for user interface), random (to shuffle randomly the moves, so the A.I can be unpredictable),
+time (to measure how long it takes to execute the minmax algorithm), math (to make simple calculations).
+
+
+
+Opinto ohjelma: Bachelor's in science
+
+Kieli: Englanti, (Suomi also but it is little bit difficult)
