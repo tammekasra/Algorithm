@@ -1,8 +1,8 @@
-### Test document
+###Test document
 
-The testing can be avhieved by pressing the play button on testing.py or writing "python -m unittest testing.py" within a command shelld like command prompt
+The testing can be achieved by pressing the play button on testing.py or writing "python -m unittest testing.py" within a command shelld like command prompt
 
-### The test itself
+###The test itself
 
 The test has the 3 phases - first one is that first the A.I plays against the and opponent who plays completly random moves, second is where the A.I plays against an
 algorithm that just tries to stop from the A.I from winning and the third one is where the A.I plays against itself. Each step has 5 loops meaning it goes through 5 
@@ -29,7 +29,7 @@ itself which is 31 moves.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### The ecciency of the minimax algorithm.
+###The ecciency of the minimax algorithm.
 
 The main idea of the algorithm is to find the optimal move using data pruning. The algorithm has 3 steps - first one evaluates the positions, if it is a win, loss 
 or a draw it gives back the according value. The second step is maxvalue, where in this case the A.I, tries to go through all the possible positions that could be 
