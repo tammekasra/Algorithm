@@ -1,6 +1,6 @@
 ###Test document
 
-The testing can be achieved by pressing the play button on testing.py or writing "python -m unittest testing.py" within a command shelld like command prompt
+The testing can be achieved by pressing the play button on testing.py or writing "python -m unittest testing.py" within a command shell like command prompt
 
 ###The test itself
 
@@ -57,3 +57,6 @@ However, as time goes by, the A.I from move 7 already understands, that it actua
 the time in finding the winning move is faster than finding a loosing move.
 As soon as it find a win in the end as in move 10, it return positive infinitive value with time 0.02 (because it is evaluated using 1 recursion) and makes the win.
 -------------------------------------------------------------------------------------------------------------
+
+The only thing that is missing that I saw from another peer-review report is that I might actually need to implement a test that tests certain
+positions where there is a clear winning move or a clear not a lossing move that should be implemented to see if it really does make the BEST move.
