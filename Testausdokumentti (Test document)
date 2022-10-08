@@ -29,7 +29,7 @@ itself which is 31 moves.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-###The ecciency of the minimax algorithm.
+###The effiency of the minimax algorithm.
 
 The main idea of the algorithm is to find the optimal move using data pruning. The algorithm has 3 steps - first one evaluates the positions, if it is a win, loss 
 or a draw it gives back the according value. The second step is maxvalue, where in this case the A.I, tries to go through all the possible positions that could be 
