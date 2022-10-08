@@ -1,0 +1,21 @@
+
+The game connect 4
+
+The main idea behind the game is to connect 4 of your own pieces in a line. It can be vertical, horizontal or a diagonally.
+
+There are two options to start the game. First you need to download the whole code from GITHUB. Secondly you need go to a command shell like command prompt.
+From there (CMD) go to the directory in which the files were downloaded. From there write 'python main.py' to start the game.
+
+Before starting the actualy game, the program asks you as the user if you want to play (press 1) and if you want to watch how A.I plays against himself press 2.
+If you chose to play by yourself, you have the options 0 to 6 to choose from. 
+
+Every time you make a move, the move is printec out within the command line (since I sadly do not understand how pygame works so I did not implement any UI:s.
+
+The game can either be your win, loss or a draw.
+
+P.S . -Before running the program the following modules are needed:
+ 1) Numpy - pip install numpy
+ 2) Random - pip install random
+ 3) Time - pip install time
+ 4) math  - pip install math
+ 5) py game -pip install pygame
