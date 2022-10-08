@@ -1,0 +1,56 @@
+##Implementation report
+
+The main idea behind this project is to implement something called as the minimax algorithm.
+The algorithm is infamous for its cabaility to find the most optimal move within in almost any game, e.g chess, tic-tac-toe, go etc.
+
+The way how the code (connect 4) works is that in the first step, it is asked whether a human player wants to play or if you want to see if the A.I plays
+against another A.I (within the main.py module). 
+After that, the game uses Board.py module to iniate an empty (6 x 7) board where the moves are given. If the player gives a move, it is moved 
+to a slot and it is regsitered and that slot not can not be used anymore. 
+Then it is the A.I's turn, who will go through all possible options from 0 to 6, and returns a move that has the biggest value for winning the game.
+The minimax algorithms idea is that it has 3 stages - the evaluation, maxvalue and min value. When we give our input, the A.I starts with maxvalue,
+where all possible moves (situations) are generated and these are then given to minvalue, that does the same. However, when we reach to the end of a solution,
+winning, draw or loosing, it gives the value back to the minvalue and maxvalue. Maxvalue then chooses the biggest value out of them all and discarding all the losing moves,
+while minvalue chooses the smallest number, so it will win. In addition, in each step the most optimal move is chosen in each recursion.
+The minmax algorithm itself uses 2 other modules - evuluate.py and Winning_move.py. The first one gives an estimate how good or bad the position is, and gives a 
+number - the more pieces in each row, the bigger value - 2 pieces in row = 4 points, 3 pieces in a row = 15 points and 4 pieces in a row infinity (winning).
+The second moduke -winning_move - will be a stop points for the recursion, if a given positions is win, draw or lost, while evaluate evaluates whether it is impossible to 
+say whether it is won or lost.
+
+The main key coponents in this project is the - minimax algorithm and the evaluation, the last one can be tweaked and modified to be better all the time (You can try it 
+yourself by changing the numbers there and see what happens).
+
+## Time requirements
+
+The complexity of this project is - 
+   Minimax algorithm -     O(b^m), where b is the where b is the number of legal moves at each point and m is the maximum depth of the tree (which in our project is 5).
+   Evalation algorithm - O(4*n^2) - We have 4 sides to evualuate - horizontal,vertical and 2 diagonals thats loops through the 2 dimensional array
+   Winning move   - O(n^2) every time a decision is done, we just in case check whether it is a winning position or not in the end that loops 2D array
+   Is a valid move - O(n) - we check if the row 5 is free using a simple loop every time minimax is generating children (nodes/all possible continouations)
+  
+  So all in all - the over all tie complexity is or should be (since the above algorithms are each others loop (loop in side of a loop) so it is -
+     O(b^m * n^5)
+     
+## The space complexity 
+The space complexity is O(bm), where b is the number of legal moves at each point and m is the maximum depth of the tree.
+
+## Deficiencies and suggestions for improvement
+
+1)The main issue is that from the testing module (testing.py), the A.I works well against random inputs and weakers A.I's and wins all of them, however,
+when I put the A.I to play against itself, then it should be a draw, but it is not. Either way I have to tweak the evaluation function or increase the depth
+of the minimax algorithm.
+2) I need to implement a user interface using pygame (I have tried to do that almost every day but cant seem to make it work), just so that it would be a 
+alot easier for the user to see what is going on. (not jus seeing 2,1 and 0s all the time)
+3) I need to figure out how to do the so called code quality check, I've tried several other things, but my VS code starts freezing whenever I try to run those check...
+I need to do it because the code might be not clear or straightforward...
+4)I have not implemented the project so that the user can choose whether is 3,4 or 5 connect game and how large is the game (which would make the game more fun)
+
+
+## References 
+
+https://medium.com/analytics-vidhya/artificial-intelligence-at-play-connect-four-minimax-algorithm-explained-3b5fc32e4a4f
+https://cis.temple.edu/~vasilis/Courses/CIS603/Lectures/l7.html
+https://materiaalit.github.io/intro-to-ai/part2/
+https://forum.learncodethehardway.com/t/testing-input-and-print/1757/5 (for testing)
+https://en.wikipedia.org/wiki/Iterative_deepening_depth-first_search
+

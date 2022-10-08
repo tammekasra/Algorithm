@@ -1,8 +1,8 @@
-### Test document
+###Test document
 
-The testing can be avhieved by pressing the play button on testing.py or writing "python -m unittest testing.py" within a command shelld like command prompt
+The testing can be achieved by pressing the play button on testing.py or writing "python -m unittest testing.py" within a command shelld like command prompt
 
-### The test itself
+###The test itself
 
 The test has the 3 phases - first one is that first the A.I plays against the and opponent who plays completly random moves, second is where the A.I plays against an
 algorithm that just tries to stop from the A.I from winning and the third one is where the A.I plays against itself. Each step has 5 loops meaning it goes through 5 
@@ -29,7 +29,7 @@ itself which is 31 moves.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### The ecciency of the minimax algorithm.
+###The ecciency of the minimax algorithm.
 
 The main idea of the algorithm is to find the optimal move using data pruning. The algorithm has 3 steps - first one evaluates the positions, if it is a win, loss 
 or a draw it gives back the according value. The second step is maxvalue, where in this case the A.I, tries to go through all the possible positions that could be 
@@ -55,5 +55,5 @@ As we already clearly see that the A.I is really careful (a passive player) that
 to already defend itself from the opponent winning (a minus -9) value and choosing the value, took 1 second.
 However, as time goes by, the A.I from move 7 already understands, that it actually might winning for IT and it start giving positive numbers (winning game) and 
 the time in finding the winning move is faster than finding a loosing move.
-As soon as it find a win in the end as in move 10, it return positive infinitive value with time 0.02 and makes the win.
+As soon as it find a win in the end as in move 10, it return positive infinitive value with time 0.02 (because it is evaluated using 1 recursion) and makes the win.
 -------------------------------------------------------------------------------------------------------------
