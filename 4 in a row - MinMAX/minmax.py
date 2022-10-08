@@ -17,6 +17,7 @@ thisdict = {} #How many coins we have on each column!
 def players_next_move(board): #This is a not the main algorithm (this is an algorithm that stops the user by wining on move 4)
     value = -10 #The main algorith MINIMAX is below, this agorithm is just for fun, and can be used later it to play against the main A.I
     print(y_axis)
+  
     for i in range(y_axis):
         m = board.copy()
         if i in thisdict:
