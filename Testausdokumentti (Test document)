@@ -33,7 +33,7 @@ itself which is 31 moves.
 
 The main idea of the algorithm is to find the optimal move using data pruning. The algorithm has 3 steps - first one evaluates the positions, if it is a win, loss 
 or a draw it gives back the according value. The second step is maxvalue, where in this case the A.I, tries to go through all the possible positions that could be 
-played and evaluates them and picks the one the has the luckily hood of winning or stopping opponent from winning. The minvalue however, is the the same as maxvalue,
+played and evaluates them and picks the one the has the likelyhood of winning or stoping opponent from winning. The minvalue however, is the the same as maxvalue,
 but from the our perspective as the player (Player 1).
 
 If we would run the code and by using the time to measure it takes for each step.
