@@ -4,6 +4,17 @@ The main goal is to create a game called 4 connect. Its idea is that there are t
 The project uses alpha-beta pruning and minimax algorithm to get the optimal best move.
 Minimax goes through all possible options and evaluates each one and returns the "desired" move out of all those options.
 
+Despite the fact that minimax goes through all the possible continuations, it is not time nor memory efficient to go through
+all the possible scenarious simply because there are approximately 731,298,878 possibilities. This in our case means that, if 
+we run our algoirthm , this goes through all those variations and at the same time whenever we make a move, despite the A.I going
+through all the possiblities before, it still will go all the possible possibilities the second time (This time however, there are around 400,000,000 possibilities) which itself also takes tremendous amount of time.
+Therefor, I made the algorithm little bit easier using the evaluation method - when we reach a certain desired loop in our
+algorithm and if it is a drawn position or "undefined", we evaluate the position and return a certain score for it to save "time".
+
+(https://www.youtube.com/watch?v=yDWPi1pZ0Po -This gives a good perspective of the game from a mathmatical perspective)
+
+Just like most games like tic-tac-toe that is solved and is a drawn game. However, 4 connect is a win for the first player (the one who is starting) if it plays the perfect first 41 moves. It would be fun to see it solve by itself and this would mean that we would be using the minimax algorithm without the "evaluation" tools we gave it.
+
 All the other descriptions - like time complexity and small details are in described in testausdokumentti, toteusdokumentti and instructions for use
  at - https://github.com/tammekasra/Algorithm
 

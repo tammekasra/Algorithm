@@ -1,5 +1,4 @@
-##Implementation report
-
+## Implementation report
 The main idea behind this project is to implement something called as the minimax algorithm.
 The algorithm is infamous for its cabaility to find the most optimal move within in almost any game, e.g chess, tic-tac-toe, go etc.
 

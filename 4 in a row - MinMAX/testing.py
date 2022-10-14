@@ -4,6 +4,7 @@ import unittest
 from unittest.mock import patch
 import main
 import main2
+import main_testing
 import random
 import Board
 import copy
@@ -18,7 +19,13 @@ how_many_turn_against_ai = 0
 
 #[[0. 0. 0. 2. 0. 0. 2.],[0. 1. 0. 1. 0. 1. 1.],[0. 1. 0. 2. 0. 2. 1.],[1. 2. 1. 2. 0. 2. 1.],[2. 1. 2. 2. 0. 1. 2.],[1. 2. 1. 1. 0. 2. 2.]]
 #position1 = [[0.,0., 0., 1., 0., 0., 0.],[0., 0., 0., 2., 0., 0., 0.],[0., 2., 0., 1., 0., 0., 0.],[0., 1., 0., 2., 0., 0., 0.],[0., 2., 0., 1., 0., 2., 0.],[1., 1., 2., 2., 2., 1., 1.]]
-n_loops = 5
+
+
+
+n_loops = 1 #How many times we are testing the same game over again!
+
+
+
 class Test(unittest.TestCase):
 
     @patch('builtins.input', side_effect=(list1)) #This plays against random input from the user, so the A.I should win most of the time
@@ -67,6 +74,7 @@ class Test(unittest.TestCase):
         print("Against random inputs, takes turns on average = ", how_many_turns_random/n_loops)
         print("Against the bad algorithm, takes turns on average = ",how_many_turns_bad_algorithm/n_loops )
         print("Against the AI, takes turns on average= ",how_many_turn_against_ai/n_loops )
+    
 
 #class TestCalc(unittest.TestCase): # pythong -m unittest testing.py
    # @mock.patch('main.get_input', create=random.choice(variables))
