@@ -40,6 +40,13 @@ win_in_1_turns_4 = np.flip([[0,0,0,0,0,0,0], ##This check if the minimax algorit
                   [1,0,2,1,1,0,0],
                   [1,2,1,1,2,2,0],
                   [2,1,2,1,1,1,2]],0)
+                
+win_in_1_turns_5 = np.flip([[0,0,0,0,0,0,0],  #This check if the minimax algorithm fins winning move vertically
+                  [0,0,0,0,0,0,0],
+                  [0,0,0,0,0,0,0],
+                  [1,1,1,0,0,0,0],
+                  [1,1,1,0,0,0,0],
+                  [1,1,1,0,2,2,2]],0)
 draw_in_1_turns_1 = np.flip([[0,0,2,1,2,1,1], # This check if the positions is drawn 
                             [1,2,2,2,1,1,2],
                             [2,2,1,1,2,2,1],
@@ -53,7 +60,7 @@ win_in_2_turns_1 = np.flip([[0,0,0,0,0,0,0], ##This check if the minimax algorit
                             [0,0,1,2,0,0,0],
                             [0,0,2,1,0,1,0],
                             [0,0,1,2,0,2,0]],0)
-win_in_2_turns_2 = np.flip([[0,0,2,1,0,0,1], # 
+win_in_2_turns_2 = np.flip([[0,0,2,1,0,0,1], # This checks if it find the winning move with 5
                             [0,2,2,2,1,1,2],
                             [0,2,1,1,2,2,1],
                             [1,1,2,2,1,1,2],
@@ -80,17 +87,20 @@ class Test(unittest.TestCase):
             board3 = win_in_1_turns_3[:]
             board4 = win_in_1_turns_4[:]
             board5 = draw_in_1_turns_1[:]
+            board6 = win_in_1_turns_5[:]
             a = main_testing.main(board1)
             a2 = main_testing.main(board2)
             a3 = main_testing.main(board3)
             a4 = main_testing.main(board4)
             a5 = main_testing.main(board5)
+            a6 = main_testing.main(board6)
             calling_1 = a[0]
             calling_2 = a2[0]
             calling_3 = a3[0]
             calling_4 = a4[0]
             calling_5 = a5[0]
-            self.assertTrue(calling_1 == True and calling_2 == True and calling_3 == True and calling_4 == True and calling_5 == True)
+            calling_6 = a6[0]
+            self.assertTrue(calling_1 == True and calling_2 == True and calling_3 == True and calling_4 == True and calling_5 == True and calling_6 == True)
 
 class Test(unittest.TestCase):
 

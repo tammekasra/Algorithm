@@ -7,11 +7,9 @@ import Board
 import Winning_move
 import random
 import minmax
-import pygame
 import sys
 import math
 import time
-import big_o
 x_axis = Board.x_axis # determine the length of the rows
 y_axis  = Board.y_axis # determine the length of the columns
  
