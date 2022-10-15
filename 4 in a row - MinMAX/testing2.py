@@ -9,6 +9,25 @@ import copy
 import numpy as np
 
 
+block_in_1 = np.flip([[0,0,0,0,0,0,0],  #To check if it blocks opponents winning move
+                  [0,0,0,0,0,0,0],
+                  [0,0,0,0,0,0,0],
+                  [1,0,0,0,0,0,0],
+                  [1,0,0,0,0,0,0],
+                  [1,0,0,0,0,0,0]],0)
+block_in_2 = np.flip([[0,0,0,0,0,0,0],  #To check if it blocks opponents winning move
+                  [0,0,0,0,0,0,0],
+                  [0,0,0,0,0,0,0],
+                  [0,0,0,0,0,0,0],
+                  [0,0,0,0,0,0,0],
+                  [1,1,1,0,0,0,0]],0)
+block_in_3 = np.flip([[0,0,0,0,0,0,0],  #To check if it blocks opponents winning move
+                  [0,0,0,0,0,0,0],
+                  [0,0,0,0,0,0,0],
+                  [0,0,0,1,0,0,0],
+                  [2,2,2,1,2,2,2],
+                  [2,2,2,1,2,2,2]],0)
+
 win2turns2 = np.flip([[0,1,2,0,0,0,0],
                     [0,0,2,1,0,0,0],
                     [0,0,2,2,0,0,0],
@@ -58,12 +77,12 @@ win_in_2_turns_1 = np.flip([[0,0,0,0,0,0,0], ##This check if the minimax algorit
                             [0,0,0,1,0,0,0],
                             [0,0,2,1,0,0,0],
                             [0,0,1,2,0,0,0],
-                            [0,0,2,1,0,1,0],
-                            [0,0,1,2,0,2,0]],0)
-win_in_2_turns_2 = np.flip([[0,0,2,1,0,0,1], # This checks if it find the winning move with 5
+                            [2,2,2,1,0,1,0],
+                            [2,2,1,2,0,2,0]],0)
+win_in_2_turns_2 = np.flip([[0,0,0,1,0,0,1], # This checks if it find the winning move with 5
                             [0,2,2,2,1,1,2],
                             [0,2,1,1,2,2,1],
-                            [1,1,2,2,1,1,2],
+                            [0,1,2,2,1,1,2],
                             [2,1,2,1,2,2,1],
                             [1,1,2,2,1,2,1]],0)
 
@@ -101,11 +120,22 @@ class Test(unittest.TestCase):
             calling_5 = a5[0]
             calling_6 = a6[0]
             self.assertTrue(calling_1 == True and calling_2 == True and calling_3 == True and calling_4 == True and calling_5 == True and calling_6 == True)
-
-class Test(unittest.TestCase):
-
     @patch('builtins.input', side_effect=(list1)) #Check if the algorithms finds all winning moves in 2!
     def test_using_side_effect2(self, mock_input):
+        global n_loops
+        for p in range(n_loops): 
+            print("-----------------------------------------------------------------")
+            board1 = win_in_2_turns_1[:]
+            board2 = win_in_2_turns_2[:]
+            a = main_testing.main(board1)
+            a2 = main_testing.main(board2)
+            calling_1 = a[0]
+            calling_2 = a2[0]
+            self.assertTrue(calling_1 == True and calling_2 == True) # and calling_3 == True and calling_4 == True)
+
+
+    @patch('builtins.input', side_effect=(list1)) #Check if the algorithms finds all winning moves in 2!
+    def test_using_side_effect3(self, mock_input):
         global n_loops
         for p in range(n_loops): 
             print("-----------------------------------------------------------------")

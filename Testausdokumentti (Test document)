@@ -1,10 +1,10 @@
 ###Test document
 
-The testing can be achieved by pressing the play button on testing.py or writing "python -m unittest testing.py" within a command shell like command prompt
+The testings can be achieved by pressing the play button on testing.py or writing "python -m unittest testing.py" within a command shell like command prompt (or testing2.py or testing3.py)
 
-###The test itself
+###The tests itself
 
-The test has the 3 phases - first one is that first the A.I plays against the and opponent who plays completly random moves, second is where the A.I plays against an
+1) Testing.py - The test has the 3 phases - first one is that first the A.I plays against the and opponent who plays completly random moves, second is where the A.I plays against an
 algorithm that just tries to stop from the A.I from winning and the third one is where the A.I plays against itself. Each step has 5 loops meaning it goes through 5 
 times. 
 In the end you should get the following result - 
@@ -58,5 +58,29 @@ the time in finding the winning move is faster than finding a loosing move.
 As soon as it find a win in the end as in move 10, it return positive infinitive value with time 0.02 (because it is evaluated using 1 recursion) and makes the win.
 -------------------------------------------------------------------------------------------------------------
 
-The only thing that is missing that I saw from another peer-review report is that I might actually need to implement a test that tests certain
-positions where there is a clear winning move or a clear not a lossing move that should be implemented to see if it really does make the BEST move.
+
+2) Testing2.py - The test goes through many winning positions - The A.I has to find the the winning position in 1, 2 and in 5 moves. Furthermor, it also tests if it block the opponents winning move in order to avoid a loss. 
+ 
+-The simple find winning move in 1 has also opponents winning move, so A.I has to choose between to block oppoents move or 
+win straight away - luckily in our algorithm it goes straight for the win!
+-The move in 2 tests idea is to whether the algorithm finds the winning move in two. It puts the piece in a place where 
+the opponent has to block, which it does, and after that it goes for the win!
+-The move 5 was taken from a video (https://www.youtube.com/watch?v=yDWPi1pZ0Po) where it was explained that this is a winning move in 5 - There are 2^4 possible plays, but only 1 is winning. If we just put the loop as a value of 5, it sadly does not find it, but if the increase the depth value (how many moves it tries to solve further), it luckily finds the winning strike!
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+3) Testing3.py - The main principle or an idea is that, the test puts two A.I to play against each other. The player or A.I
+that starts first has the depth only 3 and the second A.I that starts secondly has a depth of 7. 
+Since the stronger A.I (longer depth value) has to start second, it is a lot harder to win compared to starting first.
+So the idea is to see whether we have a bigger value actually wins a the second player and how long it takes! 
+
+We got the results as follows by just playing 2 games:
+    Number of games drawn or won by the weaker A.i was only  1 - time taken on average per game -  0.7570380568504333 seconds 
+    Number of games won by the best A.I was - 19 with the average time taken per game - 91.132177734375 seconds
+
+Thus, out of 20 games, despite the second algorithm starting as the second player, won 19 games in total out of 20, where as 
+a draw or a win for the weaker A.I was just only 1.
+
+Therefor, the algorithm is ALMOST perfect! (Honestly have no idea how to make it better.....)
+
+

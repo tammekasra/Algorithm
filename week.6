@@ -1,0 +1,91 @@
+Week 6 report. Used time this project this week as around 11 hours.
+
+- I implemented the testing2.py that goes through all possibilities. To checkc if the algorithm can find a winning move
+in 1 and 2 and 5 (Which is this case did, and for the 5 move forcing move was only possible if I put the depth of the minmax algorithm
+to 7 instead of 5).
+(I took the winning in 5 position from this video https://www.youtube.com/watch?v=hwInu5GZrLY and https://www.youtube.com/watch?v=yDWPi1pZ0Po)
+
+
+-Testing3 was also implemented with the main indea to check if a minmaxalgorithm who has only depth to 3 (predicts the best move
+in 3) and it starting vs minmax who has a depth of 7 and it starts as a second player. The main idea of this is to check 
+how many times the A.I who starts second and with the depth of 7 win and how long on average does on game lasts vs the weaker A.I.
+It is a lot harder for the secondplayer (the one of who starts second) to win and it would be fun to watch how many games does it 
+win on average.
+
+
+For now we have 3 tests - 
+  -testing.py checks if it wins against a random output player, a bad algorithm and against itself
+  -testing2.py check if the algorithm indeed fids the winning position and the non-loosing move (not letting opponent win). (and find a win in 2)
+The winning in two example is given below
+                            [0,0,0,0,0,0,0] 
+                            [0,0,0,1,0,0,0]
+                            [0,0,2,1,0,0,0]
+                            [0,0,1,2,0,0,0]
+                            [2,2,2,1,0,1,0]
+                            [2,2,1,2,0,2,0]
+Here the winning move would be if number 2 adds to the most right colum bottom to win =>
+                            [0,0,0,0,0,0,0] 
+                            [0,0,0,1,0,0,0]
+                            [0,0,2,1,0,0,0]
+                            [0,0,1,2,0,0,0]
+                            [2,2,2,1,0,1,0]
+                            [2,2,1,2,0,2,2]
+The A.I has no other option to block is in the middle (lost 0 in the row) =>
+                            [0,0,0,0,0,0,0] 
+                            [0,0,0,1,0,0,0]
+                            [0,0,2,1,0,0,0]
+                            [0,0,1,2,0,0,0]
+                            [2,2,2,1,0,1,0]
+                            [2,2,1,2,1,2,2]
+And now A.I won in secon row on the middle (diagonally from right to left) =>
+                            [0,0,0,0,0,0,0] 
+                            [0,0,0,1,0,0,0]
+                            [0,0,2,1,0,0,0]
+                            [0,0,1,2,0,0,0]
+                            [2,2,2,1,2,1,0]
+                            [2,2,1,2,1,2,2]
+(There is one more like this move to win in 5 but I aitn going to show that here)
+
+The main idea is to check whether despite the A.I finding winning moves in 1 (this can be made by an easier algorithm than 
+minimax - just use 1 loop to find the winning move without any recursions).
+Luckily it found the win in 2 and 5, thus most likely the algorithm is working as expected!
+
+
+  -Testing3.py has the simple idea just to check if A.I that goes through 7 loops wins A.I with 3 loops. 
+   Weaker A.I starts first making it harder to the better A.I to win.
+   I went through 20 loops or games - weaker A.I vs stronger A.I with the following results:
+    Number of games drawn or won by the weaker A.i was only  1 - time taken on average per game -  0.7570380568504333 seconds 
+    Number of games won by the best A.I was - 19 with the average time taken per game - 91.132177734375
+
+
+
+P.S I read about negamax algorithm, which is sort of a a simplification to minimax. 
+- minimax has the following pseudo code: 
+
+
+  if maximizingPlayer then
+    value := −∞
+    for each child of node do
+        value := max(value, minimax(child, depth − 1, FALSE))
+    return value
+  else (* minimizing player *)
+    value := +∞
+    for each child of node do
+        value := min(value, minimax(child, depth − 1, TRUE))
+
+-where as negamax the pseudocode- 
+
+ value := max(value, −negamax(child, depth − 1, −color))
+
+negamax follows the property max(a,b) = -min(-a,-b)
+
+(https://stackoverflow.com/questions/65750233/what-is-the-difference-between-minimax-and-negamax)
+
+I however tried to implement this algorithm, but without any success yet (After my testing was done I treid to implement 
+User Interface - movie like feature where the player actually sees the board in animation not just 1s and 2s in an np array.
+Many of the peer review I received said that my project is good, but too hard to follow the moves on the console....). 
+
+P.S.S around 2 hours I was searching for 4 connect videos to see more complex 4 connect positions and check if my algorithm actually
+finds it. 
+
+

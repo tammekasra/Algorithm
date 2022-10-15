@@ -52,13 +52,30 @@ def main(board):
                                 print(Time_list)
                                 return (False,how_many_turns)   # We return false if and only if the player 1 wins (A.I has to either win or get a draw), we need to modify something if the test comes out as negative!
                                 break
-                else:
+            else:
                     
-                    continue
+                    moves = [0,1,2,3,4,5,6]
+                    move = random.choice(moves)
+                    if Board.is_valid(board,move) == False:
+                        continue
+                    start = time.time()
+                    move2 = minmax.minimax(board, 5, -math.inf, math.inf, True,move) #Get the best move using MINIMAX algorithm!
+                    end = time.time()
+                # print(move2) #- we can check the moves if we have bug....
+                    Time_list.append([(how_many_turns/2),(move2),(end-start)])
+                    move = move2[0]
+                    row = Board.get_next_open_row(board,move)
+                    Board.move(board,row,move,1)
+                    if Winning_move.win(board, 1):
+                        Board.print_board(board)
+                        print("Player 2 wins!")
+                        end_of_the_game = False
+                        print(Time_list)
+                        return (True,how_many_turns) #we want our test to get a true answer!
                 
-                Board.print_board(board) # We need to print it the matrix upside down
-                turn += 1
-                turn = turn % 2
+            Board.print_board(board) # We need to print it the matrix upside down
+            turn += 1
+            turn = turn % 2
           
                 
 

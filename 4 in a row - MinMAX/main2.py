@@ -3,8 +3,7 @@ import Board
 import Winning_move
 import random
 import minmax
-import pygame
-import sys
+import time
 import math
 x_axis = Board.x_axis
 y_axis  = Board.y_axis
@@ -24,7 +23,7 @@ def main(board):
             print("The game ended as a draw!") #If we reach to end of the game  - full of pieces, we get a draw!
             return (True,how_many_turns)
         how_many_turns += 1
-        if turn == 0:
+        if turn == 1:
             if another_algorithm_tofight_against_AI == 1:
                 move = int(input("Player 1, Make your Selection(0-6):  "))
 
@@ -54,7 +53,21 @@ def main(board):
                                 break
                 else:
                     
-                    continue
+                    moves = [0,1,2,3,4,5,6]
+                    move = random.choice(moves)
+                    if Board.is_valid(board,move) == False:
+                        continue
+                    start = time.time()
+                    move2 = minmax.minimax(board, 5, -math.inf, math.inf, True,move) #Get the best move using MINIMAX algorithm!
+                    end = time.time()
+                    move = move2[0]
+                    row = Board.get_next_open_row(board,move)
+                    Board.move(board,row,move,2)
+                    if Winning_move.win(board, 2):
+                        Board.print_board(board)
+                        print("Player 2 wins!")
+                        end_of_the_game = False
+                        return (True,how_many_turns) #we want our test to get a true answer!
                 
                 Board.print_board(board) # We need to print it the matrix upside down
                 turn += 1
