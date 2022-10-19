@@ -1,7 +1,3 @@
-
-
-
-
 import numpy as np
 import Board
 import Winning_move
@@ -90,6 +86,3 @@ def main(board):
 if __name__ == '__main__':
     board = Board.board()
     main(board)
-    
-
-        
