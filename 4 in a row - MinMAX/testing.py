@@ -22,7 +22,7 @@ how_many_turn_against_ai = 0
 
 
 
-n_loops = 100 #How many times we are testing the same game over again!
+n_loops = 1 #How many times we are testing the same game over again!
 
 
 
