@@ -1,1 +1,3 @@
 ![alt text](https://user-images.githubusercontent.com/54755302/197275646-b183ad36-4e1a-4349-bf04-c6c93259bd11.JPG)
+  ___Copy and Use this link in the .markdown file___  
+  ``![image text](https://cloud.githubusercontent.com/assets/711743/25648417/57cd2c0c-2fe9-11e7-8753-b60ea2656faf.png)``
