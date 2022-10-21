@@ -33,7 +33,7 @@ screen = pygame.display.set_mode(size)
 draw_board.draw(board)
 pygame.display.update()
 
-myfont = pygame.font.SysFont("monospace", 75)
+myfont = pygame.font.SysFont("FreeMono", 75)
 
 turn = 0
 

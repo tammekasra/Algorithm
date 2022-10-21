@@ -107,19 +107,22 @@ class Test(unittest.TestCase):
             board4 = win_in_1_turns_4[:]
             board5 = draw_in_1_turns_1[:]
             board6 = win_in_1_turns_5[:]
+            board7 = block_in_1[:]
             a = main_testing.main(board1)
             a2 = main_testing.main(board2)
             a3 = main_testing.main(board3)
             a4 = main_testing.main(board4)
             a5 = main_testing.main(board5)
             a6 = main_testing.main(board6)
+            a7 = main_testing.main(board7)
             calling_1 = a[0]
             calling_2 = a2[0]
             calling_3 = a3[0]
             calling_4 = a4[0]
             calling_5 = a5[0]
             calling_6 = a6[0]
-            self.assertTrue(calling_1 == True and calling_2 == True and calling_3 == True and calling_4 == True and calling_5 == True and calling_6 == True)
+            calling_7 = a7[0]
+            self.assertTrue(calling_7 == True and calling_1 == True and calling_2 == True and calling_3 == True and calling_4 == True and calling_5 == True and calling_6 == True)
     @patch('builtins.input', side_effect=(list1)) #Check if the algorithms finds all winning moves in 2!
     def test_using_side_effect2(self, mock_input):
         global n_loops
@@ -134,7 +137,7 @@ class Test(unittest.TestCase):
             self.assertTrue(calling_1 == True and calling_2 == True) # and calling_3 == True and calling_4 == True)
 
 
-    @patch('builtins.input', side_effect=(list1)) #Check if the algorithms finds all winning moves in 2!
+    @patch('builtins.input', side_effect=(list1)) #Check if the algorithms finds all winning moves in 5!
     def test_using_side_effect3(self, mock_input):
         global n_loops
         for p in range(n_loops): 

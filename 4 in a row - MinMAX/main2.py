@@ -101,7 +101,7 @@ def main(board):
                     Board.move(board,row,move,1) #We insert the wanted move
             #      Board.print_board(board)
                     if Winning_move.win(board, 1): #We check if it is a winning game!
-                                Board.print_board(board) # We need to print it the matrix upside down
+                                Board.print_board(board[:]) # We need to print it the matrix upside down
                                 print("Player 1 wins!")
                                 end_of_the_game = False
                                 minmax.thisdict.clear()

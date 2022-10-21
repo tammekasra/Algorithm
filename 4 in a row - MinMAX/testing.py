@@ -22,7 +22,7 @@ how_many_turn_against_ai = 0
 
 
 
-n_loops = 1 #How many times we are testing the same game over again!
+n_loops = 100 #How many times we are testing the same game over again!
 
 
 
@@ -47,7 +47,7 @@ class Test(unittest.TestCase):
         global n_loops
         for p in range(n_loops): 
             board2 = Board.board()
-            for i in range(200):
+            for i in range(5):
                 if i > 0:
                     list2[i] = random.choice(['0','1', '2', '3', '4', '5', '6'])
             a2 = main2.main(board2)
@@ -61,7 +61,7 @@ class Test(unittest.TestCase):
         global n_loops
         for p in range(n_loops): 
             board3 = Board.board()
-            for i in range(200):
+            for i in range(5):
                 if i > 0:
                     list2[i] = random.choice(['0','1', '2', '3', '4', '5', '6'])
             a3 = main.main(board3)

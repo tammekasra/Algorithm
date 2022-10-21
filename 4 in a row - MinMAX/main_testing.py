@@ -61,7 +61,7 @@ def main(board):
             if Board.is_valid(board,move) == False:
                 continue
             start = time.time()
-            move2 = minmax.minimax(board, 7, -math.inf, math.inf, True,move) #Get the best move using MINIMAX algorithm!
+            move2 = minmax.minimax(board, 5, -math.inf, math.inf, True,move) #Get the best move using MINIMAX algorithm!
             end = time.time()
            # print(move2) #- we can check the moves if we have bug....
             Time_list.append([(how_many_turns/2),(move2),(end-start)])
