@@ -1,5 +1,7 @@
 
 
+
+''' This just evalutes the position if we dont win nor loose, so we just give a score how much are we winning or loosing'''
 def evaluate(row, piece):
     evualuation = 0  #not sure if it correct or not.... but the idea is that we evaluate how many free slots are in each row, column and diagonal
     if piece == 2:

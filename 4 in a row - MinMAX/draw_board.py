@@ -1,28 +1,11 @@
 import math 
 import pygame
 
-
+''' This is just the pygame drawing... still have no clue how it fully works... '''
 BLUE = (255, 127, 14)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
 YELLOW = (31, 119, 180)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 SQUARESIZE = 100
 
 width = 700

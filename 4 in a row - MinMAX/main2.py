@@ -5,6 +5,9 @@ import random
 import minmax
 import time
 import math
+
+
+'''This is the numbers of rows and columns which are 6 and 7 respectivly '''
 x_axis = Board.x_axis
 y_axis  = Board.y_axis
  
@@ -31,14 +34,6 @@ def main(board):
                     print("Please select a proper slot!")
                     continue
 
-              #  if move in minmax.thisdict:  #This will check if the slot is full or not (max is 7)
-              #      if minmax.thisdict[move] == 6:
-              #          print("Please select another slot since this is FULL!")
-              #          continue
-              #  if move not in minmax.thisdict: #We will use a dict, since it is a lot easier and faster to do this way
-              #      minmax.thisdict[move] = 1
-              #  else:
-              #      minmax.thisdict[move] = minmax.thisdict[move] + 1
 
 
                 
@@ -84,16 +79,6 @@ def main(board):
                 if move < 0 or move > 6: #If we select a wrong slot
                     print("The slot is full")
                     continue
-
-               # if move in minmax.thisdict:  #This will check if the slot is full or not (max is 7)
-               #     if minmax.thisdict[move] == 6:
-               #         print("Please select another slot since this is FULL!")
-               #         continue
-               # if move not in minmax.thisdict: #We will use a dict, since it is a lot easier and faster to do this way
-               #     minmax.thisdict[move] = 1
-               # else:
-               #     minmax.thisdict[move] = minmax.thisdict[move] + 1
-
 
                 
                 if Board.is_valid(board,move): #Is_valid move checks if the move can be played or not (if is it over the select column or not which is 6)
@@ -144,28 +129,3 @@ if __name__ == '__main__':
     board = Board.board()
     main(board)
       
-
-        
-
-     
-       # if predict == -10:
-       #     move = random.randint(0,6)
-       # else:
-       #     move = predict
-       # if move in minmax.thisdict:  #This will check if the slot is full or not (max is 7)
-       #     if minmax.thisdict[move] == 6:
-       #         continue
-       # if move not in minmax.thisdict: #We will use a dict, since it is a lot easier and faster to do this way
-       #     minmax.thisdict[move] = 1
-       # else:
-       #     minmax.thisdict[move] = minmax.thisdict[move] + 1
-        
-        #Player 2 will drop a piece on the board
-       # if Board.is_valid(board,move):
-       #     row = Board.get_next_open_row(board,move)
-       #     Board.move(board,row,move,2)
-       #     Board.print_board(board)
-       #     if Winning_move.win(board, 2):
-       #                 print("Player 2 wins!")
-       #                 end_of_the_game = False
- 
