@@ -1,0 +1,8 @@
+# Coverage report
+
+Getting coverage for testing.py, testing2.py and testing3.py are used via coverage module.
+Getting the module is desrcribed in the following link - https://coverage.readthedocs.io/en/6.5.0/
+
+#Testing.py coverage
+
+![](https://imgur.com/a/OL9LQG8)
