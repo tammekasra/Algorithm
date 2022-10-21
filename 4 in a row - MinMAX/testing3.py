@@ -16,7 +16,7 @@ list1 =  [2]*10000 #This list is for the first testing code for the random input
 
 
 
-n_loops = 20
+n_loops = 1
 
 class Test(unittest.TestCase):
     @patch('builtins.input', side_effect=(list1)) #This plays against A.I himself, but forsome reason it never ends up in a draw...
