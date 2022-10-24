@@ -1,8 +1,8 @@
 ## Määrittelydokumentti (Specification document)
 
-The main goal is to create a game called 4 connect. Its idea is that there are two players who try to get 4 coins in a row and win the game.
+The main goal is to create a game called 4 connect. Its idea is that there are two players who try to get 4 coins in a row - diagonally, horizontally or left or right - and win the game.
 The project uses alpha-beta pruning and minimax algorithm to get the optimal best move.
-Minimax goes through all possible options and evaluates each one and returns the "desired" move out of all those options.
+Minimax goes through all possible options to a desired depth and evaluates each one and returns the "desired" move out of all those options.
 
 Despite the fact that minimax goes through all the possible continuations, it is not time nor memory efficient to go through
 all the possible scenarious simply because there are approximately 731,298,878 possibilities. This in our case means that, if 

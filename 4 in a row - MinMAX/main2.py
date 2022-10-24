@@ -45,7 +45,7 @@ def main(board):
                                 print("Player 1 wins!")
                                 end_of_the_game = False 
                                 return (False,how_many_turns)   # We return false if and only if the player 1 wins (A.I has to either win or get a draw), we need to modify something if the test comes out as negative!
-                                break
+                                
                 else:
                     
                     moves = [0,1,2,3,4,5,6]

@@ -1,6 +1,6 @@
 ###Test document
 
-The testings can be achieved by pressing the play button on testing.py or writing "python -m unittest testing.py" within a command shell like command prompt (or testing2.py or testing3.py)
+The testings can be achieved by pressing the play button on testing.py or writing "python -m unittest testing.against.random.input.py", "python -m unittest Testing.against.random.input.py" or  "python -m unittest Testing.possible.scenarios.py" within a command shell like command prompt (or testing2.py or testing3.py)
 
 ###The tests itself
 
@@ -84,3 +84,8 @@ a draw or a win for the weaker A.I was just only 1.
 Therefor, the algorithm is ALMOST perfect! (Honestly have no idea how to make it better.....)
 
 
+Furthermore, the coverage testing for each test are done using the command '''python -m coverage run Testing.against.random.input.py '''
+
+The coverage pictures are given on the main page in github (tammekasra) and most of the coverage shows 70-80% meaning that 
+some code is not being used - however, each of the 3 tests overlap each other, meaning that those actually use a sub part of each 
+code, and thus the coverage is not perfect...
