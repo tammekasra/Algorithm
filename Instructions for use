@@ -4,7 +4,7 @@ The game connect 4
 The main idea behind the game is to connect 4 of your own pieces in a line. It can be vertical, horizontal or a diagonally.
 
 There are two options to start the game. First you need to download the whole code from GITHUB. Secondly you need go to a command shell like command prompt.
-From there (CMD) go to the directory in which the files were downloaded. From there write 'python main.py' to start the game.
+From there (CMD) go to the directory in which the files were downloaded. From there write 'python 4.connect.py' to start the game.
 
 Before starting the actualy game, the program asks you as the user if you want to play (press 1) and if you want to watch how A.I plays against himself press 2.
 If you chose to play by yourself, you have the options 0 to 6 to choose from. 
