@@ -74,10 +74,10 @@ draw_in_1_turns_1 = np.flip([[0,0,2,1,2,1,1], # This check if the positions is d
                             [1,1,2,2,1,2,1]],0)
 
 win_in_2_turns_1 = np.flip([[0,0,0,0,0,0,0], ##This check if the minimax algorithm finds the winning move in 2
-                            [0,0,0,1,0,0,0],
+                            [0,0,0,0,0,0,0],
                             [0,0,2,1,0,0,0],
                             [0,0,1,2,0,0,0],
-                            [2,2,2,1,0,1,0],
+                            [0,2,2,1,0,1,0],
                             [2,2,1,2,0,2,0]],0)
 win_in_2_turns_2 = np.flip([[0,0,0,1,0,0,1], # This checks if it find the winning move with 5
                             [0,2,2,2,1,1,2],
