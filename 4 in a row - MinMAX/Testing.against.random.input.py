@@ -4,11 +4,8 @@ import unittest
 from unittest.mock import patch
 import main
 import main2
-import main_testing
 import random
 import Board
-import copy
-import numpy as np
 list1 =  [1]*10000 #This list is for the first testing code for the random input by the user (test_using_side_effect)
 list2 =  [2]*10000 #This list is for the A.I (test_using_side_effect2)
 

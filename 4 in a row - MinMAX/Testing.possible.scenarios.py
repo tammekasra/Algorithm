@@ -3,9 +3,6 @@
 import unittest
 from unittest.mock import patch
 import main_testing
-import random
-import Board
-import copy
 import numpy as np
 
 

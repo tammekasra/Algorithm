@@ -2,16 +2,12 @@
 
 
 
-import numpy as np
+
 import Board
-import Winning_move
 import random
 import minmax
-import pygame
-import sys
 import math
 import time
-import big_o
 x_axis = Board.x_axis # determine the length of the rows
 y_axis  = Board.y_axis # determine the length of the columns
  
@@ -46,7 +42,7 @@ def main(board):
                     row = Board.get_next_open_row(board,move) #We will fetch the desired row where we can to insert our coin - since the number of the row will change everytime
                     Board.move(board,row,move,1) #We insert the wanted move
             #      Board.print_board(board)
-                    if Winning_move.win(board, 1): #We check if it is a winning game!
+                    if minmax.win(board, 1): #We check if it is a winning game!
                                 print("Player 1 wins!")
                                 end_of_the_game = False 
                                 print(Time_list)
@@ -66,7 +62,7 @@ def main(board):
                     move = move2[0]
                     row = Board.get_next_open_row(board,move)
                     Board.move(board,row,move,1)
-                    if Winning_move.win(board, 1):
+                    if minmax.win(board, 1):
                         Board.print_board(board)
                         print("Player 2 wins!")
                         end_of_the_game = False
@@ -94,7 +90,7 @@ def main(board):
             move = move2[0]
             row = Board.get_next_open_row(board,move)
             Board.move(board,row,move,2)
-            if Winning_move.win(board, 2):
+            if minmax.win(board, 2):
                 Board.print_board(board)
                 print("Player 2 wins!")
                 end_of_the_game = False

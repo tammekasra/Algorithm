@@ -1,9 +1,7 @@
-import numpy as np
+
 import Board
-import Winning_move
 import random
 import minmax
-import sys
 import math
 import time
 x_axis = Board.x_axis # determine the length of the rows
@@ -39,7 +37,7 @@ def main(board):
             move = move2[0]
             row = Board.get_next_open_row(board,move)
             Board.move(board,row,move,1)
-            if Winning_move.win(board, 1):
+            if minmax.win(board, 1):
                 Board.print_board(board)
                 print("Player 2 wins!")
                 end_of_the_game = False
@@ -68,7 +66,7 @@ def main(board):
             move = move2[0]
             row = Board.get_next_open_row(board,move)
             Board.move(board,row,move,2)
-            if Winning_move.win(board, 2):
+            if minmax.win(board, 2):
                 Board.print_board(board)
                 print("Player 2 wins!")
                 end_of_the_game = False

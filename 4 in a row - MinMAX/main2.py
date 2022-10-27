@@ -1,6 +1,5 @@
-import numpy as np
+
 import Board
-import Winning_move
 import random
 import minmax
 import time
@@ -41,7 +40,7 @@ def main(board):
                     row = Board.get_next_open_row(board,move) #We will fetch the desired row where we can to insert our coin - since the number of the row will change everytime
                     Board.move(board,row,move,1) #We insert the wanted move
             #      Board.print_board(board)
-                    if Winning_move.win(board, 1): #We check if it is a winning game!
+                    if minmax.win(board, 1): #We check if it is a winning game!
                                 print("Player 1 wins!")
                                 end_of_the_game = False 
                                 return (False,how_many_turns)   # We return false if and only if the player 1 wins (A.I has to either win or get a draw), we need to modify something if the test comes out as negative!
@@ -58,7 +57,7 @@ def main(board):
                     move = move2[0]
                     row = Board.get_next_open_row(board,move)
                     Board.move(board,row,move,2)
-                    if Winning_move.win(board, 2):
+                    if minmax.win(board, 2):
                         Board.print_board(board)
                         print("Player 2 wins!")
                         end_of_the_game = False
@@ -85,7 +84,7 @@ def main(board):
                     row = Board.get_next_open_row(board,move) #We will fetch the desired row where we can to insert our coin - since the number of the row will change everytime
                     Board.move(board,row,move,1) #We insert the wanted move
             #      Board.print_board(board)
-                    if Winning_move.win(board, 1): #We check if it is a winning game!
+                    if minmax.win(board, 1): #We check if it is a winning game!
                                 Board.print_board(board[:]) # We need to print it the matrix upside down
                                 print("Player 1 wins!")
                                 end_of_the_game = False
@@ -111,7 +110,7 @@ def main(board):
             move = move2[0]
             row = Board.get_next_open_row(board,move)
             Board.move(board,row,move,2)
-            if Winning_move.win(board, 2):
+            if minmax.win(board, 2):
                 Board.print_board(board)
                 print("Player 2 wins!")
                 end_of_the_game = False

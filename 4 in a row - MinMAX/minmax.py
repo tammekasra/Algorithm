@@ -3,16 +3,44 @@
 import math
 import Board
 import random
-import numpy as np
-import Winning_move
-import copy
-import main_testing
 import Evaluate
 x_axis = Board.x_axis
 y_axis = Board.y_axis
 
 
 thisdict = {} 
+
+
+
+
+x_axis = Board.x_axis
+y_axis  = Board.y_axis
+
+def win(board, piece):
+    '''Horizontal checking'''
+    
+    for y in range(y_axis-3):
+        for x in range(x_axis):
+            if   board[x][y] == piece and board[x][y+1] == piece and board[x][y+2] == piece and board[x][y+3] == piece:
+                return True
+ 
+    '''Vertical checking'''
+    for y in range(y_axis):
+        for x in range(x_axis-3):
+            if  board[x][y] == piece and board[x+1][y] == piece and board[x+2][y] == piece and board[x+3][y] == piece:
+                return True
+ 
+    '''Diagonal checking'''
+    for y in range(y_axis-3):
+        for x in range(x_axis-3):
+            if  board[x][y] == piece and board[x+1][y+1] == piece and board[x+2][y+2] == piece and board[x+3][y+3] == piece:
+                return True
+ 
+    '''Diagonal checking'''
+    for y in range(y_axis-3):
+        for x in range(3, x_axis):
+            if  board[x][y] == piece and board[x-1][y+1] == piece and board[x-2][y+2] == piece and board[x-3][y+3] == piece:
+                return True
 
 
 '''Players next move is a simple algorithm that just blocks opponents winning chances, but does not try to win '''
@@ -26,7 +54,7 @@ def players_next_move(board):
             if thisdict[i] < 7:
                 row = Board.get_next_open_row(m,i)
                 Board.move(m,row,i,1)
-                if Winning_move.win(m, 1):
+                if win(m, 1):
                     value = i
                     break
         else:
@@ -36,9 +64,9 @@ def players_next_move(board):
             
 ''' This check if the board if full or not and if anyone is winning or not'''
 def is_end_state(board): #Checks if it is end of the turn!
-        if Winning_move.win(board,1):
+        if win(board,1):
             return True
-        if Winning_move.win(board,2):
+        if win(board,2):
             return True
         for i in board:
             for j in i:
@@ -56,9 +84,9 @@ def end_state(board): #Checks if it is end of the turn!
 
 ''' This return if either win, loss or a draw in a given position  '''
 def value(board): #We want to get a value to a board, whether its winning for 1 or 2.
-        if Winning_move.win(board,2):
+        if win(board,2):
             return 1
-        if Winning_move.win(board,1):
+        if win(board,1):
             return -1
 
         return 0
@@ -83,9 +111,9 @@ def minimax(board, depth, alpha, beta, A_I,move):
             return (move, -1*(Evaluate.score(board, 1)))
     is_terminal = is_end_state(board)
     if is_terminal:
-        if Winning_move.win(board,2):
+        if win(board,2):
             return (move,math.inf)
-        elif Winning_move.win(board,1):
+        elif win(board,1):
             return (move,-math.inf)
         else:
             return (move,0)
@@ -101,9 +129,9 @@ def minimax(board, depth, alpha, beta, A_I,move):
             if new_score > value:
                 value = new_score
                 column = col
-            alpha = max(alpha, value)
             if alpha >= beta:
                 break
+            alpha = max(alpha, value)
         return (column, value)
 
     else: # Our as the players maximimum turn
@@ -117,9 +145,9 @@ def minimax(board, depth, alpha, beta, A_I,move):
             if new_score < value:
                 value = new_score
                 column = col
-            beta = min(beta, value)
             if alpha >= beta:
                 break
+            beta = min(beta, value)
         return (column, value)
 
 

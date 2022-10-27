@@ -6,7 +6,6 @@ import unittest
 from unittest.mock import patch
 import testing_A_I_with_3_loops_vs_7
 import Board
-import time
 import numpy as np
 
 #Testing 3 idea is to see whether increasing the numbers of loops (how deep the minimax goes) and can it win a minimax with only 3 loops...
