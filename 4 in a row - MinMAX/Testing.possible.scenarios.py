@@ -2,7 +2,7 @@
 
 import unittest
 from unittest.mock import patch
-import main_testing
+import main
 import numpy as np
 
 
@@ -87,7 +87,7 @@ win_in_2_turns_2 = np.flip([[0,0,0,1,0,0,1], # This checks if it find the winnin
 
 
 
-list1 =  [1]*10000 #This list is for the first testing code for the random input by the user (test_using_side_effect)
+list1 =  [2,5,5]*10000 #This list is for the first testing code for the random input by the user (test_using_side_effect)
 
 
 
@@ -105,13 +105,13 @@ class Test(unittest.TestCase):
             board5 = draw_in_1_turns_1[:]
             board6 = win_in_1_turns_5[:]
             board7 = block_in_1[:]
-            a = main_testing.main(board1)
-            a2 = main_testing.main(board2)
-            a3 = main_testing.main(board3)
-            a4 = main_testing.main(board4)
-            a5 = main_testing.main(board5)
-            a6 = main_testing.main(board6)
-            a7 = main_testing.main(board7)
+            a = main.main(board1)
+            a2 = main.main(board2)
+            a3 = main.main(board3)
+            a4 = main.main(board4)
+            a5 = main.main(board5)
+            a6 = main.main(board6)
+            a7 = main.main(board7)
             calling_1 = a[0]
             calling_2 = a2[0]
             calling_3 = a3[0]
@@ -127,8 +127,8 @@ class Test(unittest.TestCase):
             print("-----------------------------------------------------------------")
             board1 = win_in_2_turns_1[:]
             board2 = win_in_2_turns_2[:]
-            a = main_testing.main(board1)
-            a2 = main_testing.main(board2)
+            a = main.main(board1)
+            a2 = main.main(board2)
             calling_1 = a[0]
             calling_2 = a2[0]
             self.assertTrue(calling_1 == True and calling_2 == True) # and calling_3 == True and calling_4 == True)
@@ -141,8 +141,8 @@ class Test(unittest.TestCase):
             print("-----------------------------------------------------------------")
             board1 = win_in_2_turns_1[:]
             board2 = win_in_2_turns_2[:]
-            a = main_testing.main(board1)
-            a2 = main_testing.main(board2)
+            a = main.main(board1)
+            a2 = main.main(board2)
             calling_1 = a[0]
             calling_2 = a2[0]
             self.assertTrue(calling_1 == True and calling_2 == True) # and calling_3 == True and calling_4 == True)

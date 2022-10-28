@@ -3,11 +3,12 @@
 import unittest
 from unittest.mock import patch
 import main
-import main2
 import random
 import Board
-list1 =  [1]*10000 #This list is for the first testing code for the random input by the user (test_using_side_effect)
-list2 =  [2]*10000 #This list is for the A.I (test_using_side_effect2)
+list1 =  [1]*200 #This list is for the first testing code for the random input by the user (test_using_side_effect)
+list2 =  [2,5,5]*200 #This list is for the A.I (test_using_side_effect2)
+list3 = [3,5,5]*200
+
 
 
 how_many_turns_random = 0
@@ -39,15 +40,15 @@ class Test(unittest.TestCase):
             how_many_turns_random += a[1]
             self.assertTrue(calling_1 == True)
     
-    @patch('builtins.input', side_effect=(list2)) #This plays against A.I, an algorithm that does not try to win, but block every 4th winning slot for the A.I
+    @patch('builtins.input', side_effect=(list3)) #This plays against A.I, an algorithm that does not try to win, but block every 4th winning slot for the A.I
     def test_using_side_effect2(self, mock_input):
         global n_loops
         for p in range(n_loops): 
             board2 = Board.board()
-            for i in range(5):
-                if i > 0:
+            for i in range(100):
+                if i > 2:
                     list2[i] = random.choice(['0','1', '2', '3', '4', '5', '6'])
-            a2 = main2.main(board2)
+            a2 = main.main(board2)
             calling_2 = a2[0] 
             global how_many_turns_bad_algorithm
             how_many_turns_bad_algorithm += a2[1]
@@ -59,7 +60,7 @@ class Test(unittest.TestCase):
         for p in range(n_loops): 
             board3 = Board.board()
             for i in range(5):
-                if i > 0:
+                if i > 2:
                     list2[i] = random.choice(['0','1', '2', '3', '4', '5', '6'])
             a3 = main.main(board3)
             calling_3 = a3[0]

@@ -6,12 +6,12 @@ import unittest
 from unittest.mock import patch
 import testing_A_I_with_3_loops_vs_7
 import Board
-import numpy as np
+
 
 #Testing 3 idea is to see whether increasing the numbers of loops (how deep the minimax goes) and can it win a minimax with only 3 loops...
 
 
-list1 =  [2]*10000 #This list is for the first testing code for the random input by the user (test_using_side_effect)
+list1 =  [2,3,7]*10000 #This list is for the first testing code for the random input by the user (test_using_side_effect)
 
 
 
@@ -33,7 +33,6 @@ class Test(unittest.TestCase):
                 win_for_AI += 1
             else:
                 draw_or_loose +=1
-            print(a3)
             time_weaker_Ai += (a3[1])
             time_stronger_Ai += (a3[2])
             self.assertTrue(calling_3 == True or calling_3 == False )
