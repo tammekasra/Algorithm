@@ -107,16 +107,18 @@ def play():
                             break
                     
                 
-                    move2 = minmax.minimax(board, 5, -math.inf, math.inf, True,move) #Get the best move using MINIMAX algorithm!
+                    move2 = minmax.minimax(board, 6, -math.inf, math.inf, True,move) #Get the best move using MINIMAX algorithm!
                     col = move2[0]
+                    eval = move2[1]
                     if Board.is_valid(board, col):
                         row = Board.get_next_open_row(board, col)
                         Board.move(board, row, col, 1)
-                        if minmax.win(board, 1):
-                            pygame.draw.rect(screen, (0, 0, 0), (0, 0, 700, 100))
-                            label = myfont.render("A.I wins!", 1, (255, 255, 0))
-                            screen.blit(label, (40, 10))
-                            game_over = True
+                        if math.isinf(eval):
+                            if minmax.win(board, 1):
+                                pygame.draw.rect(screen, (0, 0, 0), (0, 0, 700, 100))
+                                label = myfont.render("A.I wins!", 1, (255, 255, 0))
+                                screen.blit(label, (40, 10))
+                                game_over = True
 
                         Board.print_board(board)
                         Board.draw(board)
@@ -135,6 +137,8 @@ def play():
             
                 move2 = minmax.minimax(board, 5, -math.inf, math.inf, True,move) #Get the best move using MINIMAX algorithm!
                 col = move2[0]
+                eval = move2[1]
+                print(eval)
                 if Board.is_valid(board, col):
                     row = Board.get_next_open_row(board, col)
                     Board.move(board, row, col, 2)

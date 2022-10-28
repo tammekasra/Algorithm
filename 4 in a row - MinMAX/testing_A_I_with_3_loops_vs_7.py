@@ -73,14 +73,16 @@ def main(board):
            # print(move2) #- we can check the moves if we have bug....
             Time_list_strong_Ai +=  end2-start2
             move = move2[0]
+            eval = move2[1]
             row = Board.get_next_open_row(board,move)
             Board.move(board,row,move,2)
-            if minmax.win(board, 2):
-                Board.print_board(board)
-                print("Player 2 wins!")
-                end_of_the_game = False
-                print(Time_list_weak_Ai,Time_list_strong_Ai)
-                return (True,Time_list_weak_Ai,Time_list_strong_Ai) #we want our test to get a true answer!
+            if math.isinf(eval):
+                if minmax.win(board, 2):
+                    Board.print_board(board)
+                    print("Player 2 wins!")
+                    end_of_the_game = False
+                    print(Time_list_weak_Ai,Time_list_strong_Ai)
+                    return (True,Time_list_weak_Ai,Time_list_strong_Ai) #we want our test to get a true answer!
                 
             Board.print_board(board)
             

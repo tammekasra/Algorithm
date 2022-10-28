@@ -46,7 +46,6 @@ def win(board, piece):
 '''Players next move is a simple algorithm that just blocks opponents winning chances, but does not try to win '''
 def players_next_move(board): 
     value = -10 
-    print(y_axis)
   
     for i in range(y_axis):
         m = board.copy()
@@ -95,11 +94,29 @@ def value(board): #We want to get a value to a board, whether its winning for 1 
 def get_valid_locations(board):
     locations = []
 
+    max = 0
     for i in range(7):
         if Board.is_valid(board,i):
-            locations.append(i)
-    random.shuffle(locations)
-    return locations
+           # locations.append(i)
+            if not locations:
+                    locations.append(i)
+                    max = Evaluate.score(board,i)
+            else:
+                eval = Evaluate.score(board,i)
+                if eval > max:
+                    locations.insert(0, i)
+                    max = eval
+                else:
+                    locations.append(i)
+                    
+
+
+       
+    #random.shuffle(locations)
+    return locations[:4] #Maybe cutting the best moves in half is okay?
+
+
+
 
 def minimax(board, depth, alpha, beta, A_I,move):
     valid_locations = get_valid_locations(board)
