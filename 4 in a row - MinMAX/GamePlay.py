@@ -107,7 +107,7 @@ def play():
                             break
                     
                 
-                    move2 = minmax.minimax(board, 6, -math.inf, math.inf, True,move) #Get the best move using MINIMAX algorithm!
+                    move2 = minmax.minimax(board, 5, -math.inf, math.inf, True,move) #Get the best move using MINIMAX algorithm!
                     col = move2[0]
                     eval = move2[1]
                     if Board.is_valid(board, col):

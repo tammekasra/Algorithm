@@ -9,14 +9,23 @@ def evaluate(row, piece):
     else:
         opponent = 2
 
-    if row.count(opponent) == 3 and row.count(0) == 1: #if our opponent has a winning slot, we need to stop it
+
+    '''if our opponent has a winning slot, we need to stop it, so the position is -4 '''
+    if row.count(opponent) == 3 and row.count(0) == 1: 
         evualuation -= 4
-    if row.count(piece) == 2 and row.count(0) == 2: #if we have two slots free, we increase the value a little bit by 2
+
+    ''' if we have two slots free, we increase the value a little bit by 2 '''
+    if row.count(piece) == 2 and row.count(0) == 2: 
         evualuation += 2
-    if row.count(piece) == 3 and row.count(0) == 1: #if there 3 in a row and 1 free slot, we choose it
+
+    '''if there 3 in a row and 1 free slot, we choose it and give it a score of 5 '''
+    if row.count(piece) == 3 and row.count(0) == 1: 
         evualuation += 5
-    if row.count(piece) == 4: #if there is a straight win with 4 in a row!
+
+    ''' If we obvisouly have 4 in a row, then we have won! So maximum score  '''
+    if row.count(piece) == 4: 
         evualuation += 100
+
     return evualuation
 
 def score(board, column):

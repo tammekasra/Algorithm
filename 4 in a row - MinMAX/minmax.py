@@ -97,23 +97,11 @@ def get_valid_locations(board):
     max = 0
     for i in range(7):
         if Board.is_valid(board,i):
-           # locations.append(i)
-            if not locations:
-                    locations.append(i)
-                    max = Evaluate.score(board,i)
-            else:
-                eval = Evaluate.score(board,i)
-                if eval > max:
-                    locations.insert(0, i)
-                    max = eval
-                else:
-                    locations.append(i)
-                    
-
-
+           locations.append(i)
+           
        
-    #random.shuffle(locations)
-    return locations[:4] #Maybe cutting the best moves in half is okay?
+    random.shuffle(locations)
+    return locations #Maybe cutting the best moves in half is okay?
 
 
 
