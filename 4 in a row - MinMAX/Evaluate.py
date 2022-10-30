@@ -4,10 +4,9 @@
 ''' This just evalutes the position if we dont win nor loose, so we just give a score how much are we winning or loosing'''
 def evaluate(row, piece):
     evualuation = 0  #not sure if it correct or not.... but the idea is that we evaluate how many free slots are in each row, column and diagonal
-    if piece == 2:
-        opponent = 1
-    else:
-        opponent = 2
+
+    opponent = 1
+  
 
 
     '''if our opponent has a winning slot, we need to stop it, so the position is -4 '''
@@ -22,9 +21,7 @@ def evaluate(row, piece):
     if row.count(piece) == 3 and row.count(0) == 1: 
         evualuation += 5
 
-    ''' If we obvisouly have 4 in a row, then we have won! So maximum score  '''
-    if row.count(piece) == 4: 
-        evualuation += 100
+
 
     return evualuation
 

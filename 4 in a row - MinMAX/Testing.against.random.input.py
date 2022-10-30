@@ -5,6 +5,7 @@ from unittest.mock import patch
 import main
 import random
 import Board
+import numpy as np
 list1 =  [1]*200 #This list is for the first testing code for the random input by the user (test_using_side_effect)
 list2 =  [2,5,5]*200 #This list is for the A.I (test_using_side_effect2)
 list3 = [3,5,5]*200
@@ -30,7 +31,7 @@ class Test(unittest.TestCase):
     def test_using_side_effect(self, mock_input):
         global n_loops
         for p in range(n_loops): 
-            board1 = Board.board()
+            board1 = np.zeros((6,7)) 
             for i in range(200):
                 if i > 0:
                     list1[i] = random.choice(['0','1', '2', '3', '4', '5', '6'])
@@ -44,7 +45,7 @@ class Test(unittest.TestCase):
     def test_using_side_effect2(self, mock_input):
         global n_loops
         for p in range(n_loops): 
-            board2 = Board.board()
+            board2 =  np.zeros((6,7)) 
             for i in range(100):
                 if i > 2:
                     list2[i] = random.choice(['0','1', '2', '3', '4', '5', '6'])
@@ -58,7 +59,7 @@ class Test(unittest.TestCase):
     def test_using_side_effect3(self, mock_input):
         global n_loops
         for p in range(n_loops): 
-            board3 = Board.board()
+            board3 =  np.zeros((6,7)) 
             for i in range(5):
                 if i > 2:
                     list2[i] = random.choice(['0','1', '2', '3', '4', '5', '6'])
@@ -74,12 +75,7 @@ class Test(unittest.TestCase):
         print("Against the AI, takes turns on average= ",how_many_turn_against_ai/n_loops )
     
 
-#class TestCalc(unittest.TestCase): # pythong -m unittest testing.py
-   # @mock.patch('main.get_input', create=random.choice(variables))
-#    def test_add(self):
-#        with input(create=random.choice(variables)):
-#            self.assertEqual(main.main(),True)
 
 
-if __name__ == '__main__': #we can use  - python testing.py - so it works
+if __name__ == '__main__': 
     unittest.main()
