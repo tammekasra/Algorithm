@@ -8,7 +8,7 @@ import random
 import minmax
 import math
 import time
-import testing_A_I_with_3_loops_vs_7
+import bad_algorithm
 x_axis = Board.x_axis # determine the length of the rows
 y_axis  = Board.y_axis # determine the length of the columns
  
@@ -73,7 +73,7 @@ def main(board):
             if another_algorithm_tofight_against_AI == 3:
                 moves = [0,1,2,3,4,5,6]
                 move2 = random.choice(moves)
-                a = testing_A_I_with_3_loops_vs_7.players_next_move(board)
+                a = bad_algorithm.players_next_move(board)
 
                 if a == -10:
                     move = move2

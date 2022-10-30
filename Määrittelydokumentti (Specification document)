@@ -15,7 +15,7 @@ algorithm and if it is a drawn position or "undefined", we evaluate the position
 
 Just like most games like tic-tac-toe that is solved and is a drawn game. However, 4 connect is a win for the first player (the one who is starting) if it plays the perfect first 41 moves. It would be fun to see it solve by itself and this would mean that we would be using the minimax algorithm without the "evaluation" tools we gave it.
 
-All the other descriptions - like time complexity and small details are in described in testausdokumentti, toteusdokumentti and instructions for use
+All the other descriptions - like time complexity and small details are in described in testausdokumentti, toteusdokumentti and instructions and also coverage and performances are for use
  at - https://github.com/tammekasra/Algorithm
 
 The main reason why I chose this algorithm is that me personally, recursion has been a difficult thing to grasp and minimax just does that and 

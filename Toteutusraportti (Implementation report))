@@ -13,6 +13,9 @@ winning, draw or loosing, it gives the value back to the minvalue and maxvalue. 
 while minvalue chooses the smallest number, so it will win. In addition, in each step the most optimal move is chosen in each recursion.
 The minmax algorithm itself uses 2 other modules - evuluate.py and Winning_move.py. The first one gives an estimate how good or bad the position is, and gives a 
 number - the more pieces in each row, the bigger value - 2 pieces in row = 4 points, 3 pieces in a row = 15 points and 4 pieces in a row infinity (winning).
+
+Example 
+
 The second moduke -winning_move - will be a stop points for the recursion, if a given positions is win, draw or lost, while evaluate evaluates whether it is impossible to 
 say whether it is won or lost.
 

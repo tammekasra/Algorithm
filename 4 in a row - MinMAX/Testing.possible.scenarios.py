@@ -5,26 +5,28 @@ from unittest.mock import patch
 import main
 import numpy as np
 
-
-block_in_1 = np.flip([[0,0,0,0,0,0,0],  #To check if it blocks opponents winning move
+''' To check if it blocks opponents winning move '''
+block_in_1 = np.flip([[0,0,0,0,0,0,0],  
                   [0,0,0,0,0,0,0],
                   [0,0,0,0,0,0,0],
                   [1,0,0,0,0,0,0],
                   [1,0,0,0,0,0,0],
                   [1,0,0,0,0,0,0]],0)
-block_in_2 = np.flip([[0,0,0,0,0,0,0],  #To check if it blocks opponents winning move
+block_in_2 = np.flip([[0,0,0,0,0,0,0],  
                   [0,0,0,0,0,0,0],
                   [0,0,0,0,0,0,0],
                   [0,0,0,0,0,0,0],
                   [0,0,0,0,0,0,0],
                   [1,1,1,0,0,0,0]],0)
-block_in_3 = np.flip([[0,0,0,0,0,0,0],  #To check if it blocks opponents winning move
+block_in_3 = np.flip([[0,0,0,0,0,0,0],  
                   [0,0,0,0,0,0,0],
                   [0,0,0,0,0,0,0],
                   [0,0,0,1,0,0,0],
                   [2,2,2,1,2,2,2],
                   [2,2,2,1,2,2,2]],0)
 
+
+''' This check if the algorithm can find a win in 2 moves'''
 win2turns2 = np.flip([[0,1,2,0,0,0,0],
                     [0,0,2,1,0,0,0],
                     [0,0,2,2,0,0,0],
@@ -32,51 +34,59 @@ win2turns2 = np.flip([[0,1,2,0,0,0,0],
                     [1,2,1,2,2,1,2],
                     [1,1,2,1,1,1,2]],0)
 
-win_in_1_turns_1 = np.flip([[0,0,0,0,0,0,0],  #This check upwards if it fins the correct move!
+''' Check if it blocks the winning move or wins straighforward'''
+win_in_1_turns_1 = np.flip([[0,0,0,0,0,0,0], 
                   [0,0,0,0,0,0,0],
                   [0,0,0,0,0,0,0],
                   [1,0,0,0,0,0,2],
                   [1,0,0,0,0,0,2],
                   [1,0,0,0,0,0,2]],0)
-win_in_1_turns_2 = np.flip([[0,0,0,0,0,0,0],  #This check if the minimax algorithm fins winning move vertically
+
+''' Checks if it wins vertically and diagonally!!'''
+win_in_1_turns_2 = np.flip([[0,0,0,0,0,0,0],  
                   [0,0,0,0,0,0,0],
                   [0,0,0,0,0,0,0],
                   [1,0,0,0,0,0,0],
                   [1,0,0,0,0,0,0],
                   [1,0,0,0,2,2,2]],0)
-win_in_1_turns_3 = np.flip([[0,0,0,0,0,0,0], #This check if the minimax algorithm fins winning move diagonally
+win_in_1_turns_3 = np.flip([[0,0,0,0,0,0,0], 
                   [0,0,0,0,0,0,0],
                   [0,0,0,0,0,0,0],
                   [1,0,0,1,2,0,0],
                   [1,0,0,1,2,2,0],
                   [1,0,0,1,1,1,2]],0)
-win_in_1_turns_4 = np.flip([[0,0,0,0,0,0,0], ##This check if the minimax algorithm fins winning move diagonally
+win_in_1_turns_4 = np.flip([[0,0,0,0,0,0,0],
                   [0,0,0,0,0,0,0],
                   [0,0,0,0,0,0,0],
                   [1,0,2,1,1,0,0],
                   [1,2,1,1,2,2,0],
                   [2,1,2,1,1,1,2]],0)
                 
-win_in_1_turns_5 = np.flip([[0,0,0,0,0,0,0],  #This check if the minimax algorithm fins winning move vertically
+win_in_1_turns_5 = np.flip([[0,0,0,0,0,0,0],  #
                   [0,0,0,0,0,0,0],
                   [0,0,0,0,0,0,0],
                   [1,1,1,0,0,0,0],
                   [1,1,1,0,0,0,0],
                   [1,1,1,0,2,2,2]],0)
-draw_in_1_turns_1 = np.flip([[0,0,2,1,2,1,1], # This check if the positions is drawn 
+
+''' Checks if the position is drawn!'''
+draw_in_1_turns_1 = np.flip([[0,0,2,1,2,1,1],
                             [1,2,2,2,1,1,2],
                             [2,2,1,1,2,2,1],
                             [1,1,2,2,1,1,2],
                             [2,1,2,1,2,2,1],
                             [1,1,2,2,1,2,1]],0)
 
-win_in_2_turns_1 = np.flip([[0,0,0,0,0,0,0], ##This check if the minimax algorithm finds the winning move in 2
+
+''' Checks the win in 2'''
+win_in_2_turns_1 = np.flip([[0,0,0,0,0,0,0], 
                             [0,0,0,0,0,0,0],
                             [0,0,2,1,0,0,0],
                             [0,0,1,2,0,0,0],
                             [0,2,2,1,0,1,0],
                             [2,2,1,2,0,2,0]],0)
-win_in_2_turns_2 = np.flip([[0,0,0,1,0,0,1], # This checks if it find the winning move with 5
+''' Checks the win in 5!'''
+win_in_2_turns_2 = np.flip([[0,0,0,1,0,0,1], 
                             [0,2,2,2,1,1,2],
                             [0,2,1,1,2,2,1],
                             [0,1,2,2,1,1,2],
@@ -87,7 +97,8 @@ win_in_2_turns_2 = np.flip([[0,0,0,1,0,0,1], # This checks if it find the winnin
 
 
 
-list1 =  [2,5,5]*10000 #This list is for the first testing code for the random input by the user (test_using_side_effect)
+''' This gives the input values 2 as in the A.I plays with the level of 5 for each!'''
+list1 =  [2,5,5]*10000 
 
 
 
