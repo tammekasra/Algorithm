@@ -6,7 +6,8 @@ import pygame
 import Board
 import minmax
 import sys
-
+import GUI
+import numpy as np
 
 
 
@@ -34,7 +35,7 @@ def play():
 
 
     '''We get the empty board from board module '''
-    board = Board.board()
+    board = np.zeros((6,7)) 
     Board.print_board(board)
 
     '''If the game ends, it turns True and the while loop will stop '''
@@ -50,7 +51,7 @@ def play():
     screen = pygame.display.set_mode(size)
 
     '''We are drawings the board - GUI '''
-    Board.draw(board)
+    GUI.draw(board)
 
     '''We need to update out init() whenever we make a move '''
     pygame.display.update()
@@ -60,7 +61,9 @@ def play():
 
     while not game_over:
 
+        ''' If we get a drawn positions we end it as a darw'''    
         if minmax.end_state(board):
+                '''we print out the draw lebl and  '''
                 label = myfont.render("Draw!", 1, (255, 255, 0))
                 screen.blit(label, (40, 10))
                 game_over = True
@@ -97,7 +100,7 @@ def play():
                                     turn += 1
                                     turn = turn % 2
 
-                                    Board.draw(board)
+                                    GUI.draw(board)
         else:
             if turn == 0 and not game_over:
                     moves = [0,1,2,3,4,5,6]
@@ -121,7 +124,7 @@ def play():
                                 game_over = True
 
                         Board.print_board(board)
-                        Board.draw(board)
+                        GUI.draw(board)
 
                         turn += 1
                         turn = turn % 2
@@ -149,7 +152,7 @@ def play():
                         game_over = True
 
                     Board.print_board(board)
-                    Board.draw(board)
+                    GUI.draw(board)
 
                     turn += 1
                     turn = turn % 2
