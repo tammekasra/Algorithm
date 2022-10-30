@@ -6,6 +6,15 @@ the time run via each depth is exponential!
 
 The performance test can be run via performance.py or via command shell " python run performance.py"
 
+Albeit the performance is not 100%, altough, if we would remove either of the tests, then the other tests are 100%.
+It is just that I had either option to put all function in different modules (which makes things a lot more complex
+and difficult to understand) or keep it like that.
+
+This just means that the coverage most of the time doesnt know whether the code is being used or not 
+(some of the code depics some situations than can happen not so often....)
+
+
+
 
 ## Coverage
 
